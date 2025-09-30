@@ -85,7 +85,7 @@ function mostrarCarrito(){
         htmlCarrito += 
         `
         <li class="bloque-item">
-            <p class="nombre-item">${producto.nombre} - ${producto.precio}</p>
+            <p class="nombre-item">${producto.nombre} - $${producto.precio}</p>
             <button class="boton-eliminar" onclick="eliminarDelCarrito(${index})">Eliminar Producto</button>
         </li>   
         `;
