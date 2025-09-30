@@ -1,4 +1,4 @@
-
+/* estilos principales para arreglar algunas imperfecciones en el maquetado */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
@@ -21,6 +21,7 @@ header label {
   font-weight: bold;
 }
 
+/* estilos para el input */
 #barra-busqueda {
   padding: 0.5rem;
   border-radius: 5px;
@@ -36,6 +37,7 @@ header label {
   padding: 2rem;
 }
 
+/* estilos de las cards */
 .card-producto {
   background: white;
   border-radius: 10px;
@@ -45,18 +47,20 @@ header label {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* animacion de las cards al hacer hover */
 .card-producto:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+/* tamaños de las imagenes de los productos */
 .card-producto img {
   width: 150px;
   height: 150px;
   margin: 0 auto 1rem;
   border-radius: 6px;
 }
-
+/* estilos de los elementos dentro de las cards */
 .card-producto h3 {
   font-size: 1.1rem;
   margin: 0.5rem 0;
@@ -78,6 +82,7 @@ header label {
   transition: background-color 0.2s ease;
 }
 
+/* animacion del boton de AGREGAR PRODUCTOS al hacerle hover */
 .card-producto button:hover {
   background-color: #357abd;
 }
@@ -105,10 +110,7 @@ header label {
   border-bottom: 1px solid #eee;
 }
 
-.nombre-item {
-  flex: 1;
-}
-
+/* estilos del boton de elimiar */
 .boton-eliminar {
   padding: 0.4rem 0.8rem;
   margin-left: 0.5rem;
@@ -120,10 +122,11 @@ header label {
   transition: background-color 0.2s ease;
 }
 
+/* animacion de boton */
 .boton-eliminar:hover {
   background-color: #c0392b;
 }
-
+/* boton de vaciar carrito */
 #vaciar-carrito {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
@@ -134,6 +137,33 @@ header label {
   cursor: pointer;
 }
 
+/* animacion de boton */
 #vaciar-carrito:hover {
   background-color: #ca5c0c;
+}
+
+/* estilos para los filtros  */
+.contenedor-filtros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1.3rem;
+}
+
+#filtro-precio,
+#filtro-nombre {
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 1rem;
+    transition: border-color 0.2s; /* hace un efecto de realismo al cambio de color cuando se clickea */
+}
+
+/* animacion de tipo FOCUS, me permite darle estilos en este caso a los select cuando uno es clickeado/seleccionado */
+#filtro-precio:focus,
+#filtro-nombre:focus {
+    border-color: #0078d7;
+    outline: none;
 }

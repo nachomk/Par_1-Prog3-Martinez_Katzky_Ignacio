@@ -1,16 +1,16 @@
 const productos = [
     {id:1, nombre:"Anana", precio: 15, img: "/img/anana.jpg"},
-    {id:2, nombre:"Arandano", precio: 35, img: "/img/arandano.jpg"},
-    {id:3, nombre:"Banana", precio: 25, img: "/img/banana.jpg"},
+    {id:6, nombre:"Kiwi", precio: 98, img: "/img/kiwi.jpg"},
     {id:4, nombre:"Frambuesa", precio: 5, img: "/img/frambuesa.png"},
     {id:5, nombre:"Frutilla", precio: 5, img: "/img/frutilla.jpg"},
-    {id:6, nombre:"Kiwi", precio: 98, img: "/img/kiwi.jpg"},
-    {id:7, nombre:"Mandarina", precio: 15, img: "/img/mandarina.jpg"},
-    {id:8, nombre:"Manzana", precio: 35, img: "/img/manzana.jpg"},
-    {id:9, nombre:"Pera", precio: 25, img: "/img/pera.jpg"},
     {id:10, nombre:"Pomelo Amarillo", precio: 5, img: "/img/pomelo-amarillo.jpg"},
+    {id:7, nombre:"Mandarina", precio: 15, img: "/img/mandarina.jpg"},
+    {id:3, nombre:"Banana", precio: 25, img: "/img/banana.jpg"},
+    {id:8, nombre:"Manzana", precio: 35, img: "/img/manzana.jpg"},
+    {id:12, nombre:"Sandia", precio: 15, img: "/img/sandia.jpg"},
+    {id:9, nombre:"Pera", precio: 25, img: "/img/pera.jpg"},
+    {id:2, nombre:"Arandano", precio: 35, img: "/img/arandano.jpg"},
     {id:11, nombre:"Pomelo Rojo", precio: 50, img: "/img/pomelo-rojo.jpg"},
-    {id:12, nombre:"Sandia", precio: 15, img: "/img/sandia.jpg"}
 ];
 
 const datosAlumno = {
@@ -30,11 +30,15 @@ const contenedorProductos = document.getElementById("contenedor-productos");
 const contenedorCarrito = document.getElementById("contenedor-carrito");
 const contenedorDatosAlumno = document.getElementById("datos-alumno");
 const carritosDatos = document.getElementById("carritos-datos");
-
+const filtroPrecio = document.getElementById("filtro-precio")
+const filtroNombre = document.getElementById("filtro-nombre")
 
 
 // escuchador de eventos
 barraBusqueda.addEventListener("input", filtrarProducto)
+
+filtroNombre.addEventListener("change", aplicarFiltros)
+filtroPrecio.addEventListener("change", aplicarFiltros)
 
 // funcion que creara una card para cada uno de los productos que hay en el array de productos
 function mostrarLista(array) {
@@ -143,8 +147,10 @@ function init() {
     mostrarCarrito();
     cargarCarrito();
     cargarDatosAlumno();
+    aplicarFiltros()
 }
 
+// funcion que carga los datos del alumno en el header y en la consola
 function cargarDatosAlumno() {
     console.log("DATOS DEL ALUMNO")
     console.log(datosAlumno)
@@ -153,6 +159,36 @@ function cargarDatosAlumno() {
         <p>${datosAlumno.nombre} ${datosAlumno.apellido}</p>
     `
     contenedorDatosAlumno.innerHTML = datosAlumnoHTML;
+}
+
+// funcion para la logica de los filtros de orden alfabetico y precio
+function aplicarFiltros() {
+    let productosFiltrados = [...productos];
+     
+    // este primer sort lo que me permite es tener poder usar ambos filtros (precio y nombre) en simultaneo
+    productosFiltrados.sort((a, b) => {
+        // filtro por orden alfabetico
+        if (filtroNombre.value === "az") {
+            if (a.nombre !== b.nombre) {
+                return a.nombre.localeCompare(b.nombre);
+            }
+        } else if (filtroNombre.value === "za") {
+            if (a.nombre !== b.nombre) {
+                return b.nombre.localeCompare(a.nombre);
+            }
+        }
+
+        // filtro por precio
+        if (filtroPrecio.value === "asc") {
+            return a.precio - b.precio;
+        } else if (filtroPrecio.value === "desc") {
+            return b.precio - a.precio;
+        }
+
+        return 0;
+    });
+
+    mostrarLista(productosFiltrados);
 }
 
 init()
