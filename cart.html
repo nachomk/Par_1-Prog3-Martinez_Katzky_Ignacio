@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/cart.css">
+    <script defer src="cart.js"></script>
+</head>
+<body>
+    <header>
+    <div>
+        <h2>Fruteria</h2>    
+    </div>   
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <p id="datos-alumno"></p>
+        <input type="text" id="barra-busqueda" placeholder="Buscar producto">
+    </div>
+    <div id="carritos-datos"></div>
+  </header>
+  <main>
+    <select id="filtro-precio">
+        <option value="">Ordenar por precio</option>
+        <option value="asc">Menor a mayor</option>
+        <option value="desc">Mayor a menor</option>
+    </select>
+    <select id="filtro-nombre">
+        <option value="">Ordenar alfabéticamente</option>
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+</select>
+    <section id="contenedor-productos">
+        <!-- ACA SE MOSTRARAN LOS PRODUCTOS DISPONIBLES CON SUS DATOS (NOMBRE, IMAGEN Y PRECIO) -->
+    </section>
+    <section id="contenedor-carrito">
+        <!-- ACA SE MOSTRARAN LOS PRODUCTOS AGREGADOS AL CARRITO JUNTO CON UN CONTADOR DEL PRECIO TOTAL -->
+    </section>
+  </main>
+  <footer></footer>
+</body>
+</html>

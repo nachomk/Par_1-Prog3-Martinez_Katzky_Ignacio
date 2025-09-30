@@ -1,0 +1,139 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #39A54C;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header label {
+  margin-right: .5rem;
+  font-weight: bold;
+}
+
+#barra-busqueda {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  width: 200px;
+}
+
+#contenedor-productos {
+  /* USO DE GRID EN VEZ DE FLEXBOX PARA PODER MANEJAR EN CASO DE QUE EXISTAN MAS PRODUCTOS EN EL FUTURO */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  /* defino que quiero la mayor cantidad de columnas (de 220px c/u) que quepan en el ancho */
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card-producto {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-producto img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  border-radius: 6px;
+}
+
+.card-producto h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.card-producto p {
+  font-weight: bold;
+  color: #39A54C;
+  margin-bottom: 0.5rem;
+}
+
+.card-producto button {
+  padding: 0.5rem 1rem;
+  background-color: #39A54C;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card-producto button:hover {
+  background-color: #357abd;
+}
+
+
+#contenedor-carrito {
+  background-color: #fff;
+  margin: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#contenedor-carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bloque-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+.nombre-item {
+  flex: 1;
+}
+
+.boton-eliminar {
+  padding: 0.4rem 0.8rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.boton-eliminar:hover {
+  background-color: #c0392b;
+}
+
+#vaciar-carrito {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+#vaciar-carrito:hover {
+  background-color: #ca5c0c;
+}
